@@ -1,25 +1,14 @@
-import yfinance as yf
 import streamlit as st
-import pandas as pd
 
-st.write(
-    """
-    # Simple stock price app
+# Tiêu đề của trang
+st.title("Tính lũy thừa")
 
-    Show are the stock closing price and volume of Google.
+# Nhập vào cơ số
+co_so = st.number_input("Nhập vào cơ số: ")
 
-    """
-)
-# Define the ticker symbol
-tickerSymbol = 'GOOGLE'
+# Nhập vào số mũ
+so_mu = st.number_input("Nhập vào số mũ: ")
 
-# get data on this ticker
-tickerData = yf.Ticker(tickerSymbol)
-
-# get the historical prices for this ticker
-tickerDf = tickerData.history(period='1d', start='2010-5-31', end='2020-5-31')
-
-# Open   High    Low Close    Volume    Dividends    Stock Splits
-
-st.line_chart(tickerDf.Close)
-st.line_chart(tickerDf.Volume)
+if st.button("Tính"):
+    ket_qua = co_so ** so_mu
+    st.success(f"Kết quả: {co_so} ^ {so_mu} = {ket_qua}")
