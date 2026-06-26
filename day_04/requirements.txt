@@ -1,2 +1,8 @@
 streamlit
 yfinance
+tempfile
+os
+time
+pypdf
+chromadb
+ollama
