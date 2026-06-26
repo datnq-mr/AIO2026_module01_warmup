@@ -1,3 +1,4 @@
+#Link đã triển khai: https://aio2026module01warmup-datnq.streamlit.app/
 import streamlit as st
 import pandas as pd
 
@@ -11,29 +12,9 @@ st.header("I am Header")
 st.subheader("I'm sub header. It's so hot outside")
 st.text('Hi I am text function and programers uses me inplace of paragraph tag')
 
-#Streamlit có thể hỗ trợ markdown và latex
-st.markdown('**Hello** *World*. This is the markdown')
-st.markdown('-----')
-st.caption('Hi I am Caption')
-#Hiển thị dạng ma trận 2x2
-st.latex(r'\begin{pmatrix}a&b\\c&d\end{pmatrix}')
+# Nhập vào số mũ
+so_mu = st.number_input("Nhập vào số mũ: ")
 
-#Hiển thị code ở trong 1 khung
-code = '''
-print('Hello World')
-def funt():
-    return 0
-'''
-st.code(code, language='python')
-#--------------------------------------------------------------------------------------
-st.write("## this is write function")
-st.metric(label='Wind speed', value='120ms', delta='1.4ms')
-#-------------------------------------------------------------------------------------------------------
-#Hiển thị dạng table nhưng bằng 2 cách khác nhau
-st.write('Khác nhau giữa table và dataframe là dataframe có thể sắp xếp')
-table = pd.DataFrame({"Column 1": [1, 2, 3, 4, 5, 6, 7], "Column 2:": [11, 12, 13, 14, 15, 16, 17]})
-st.table(table)
-st.dataframe(table)
-
-# Có thể dùng thể hiển thị các media: ảnh, video, audio
-st.image("chim.webp", caption="This is my Image", width=680)
+if st.button("Tính"):
+    ket_qua = co_so ** so_mu
+    st.success(f"Kết quả: {co_so} ^ {so_mu} = {ket_qua}")
